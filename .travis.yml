@@ -10,13 +10,13 @@ branches:
   - master
 
 script:
-  - npm run build:travis
+  - npm run build
 
-before_install:
-  - ./qshell account $AK $SK
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$PATH
-
-after_success:
-  - ./qshell qupload qiniu-config
-  - ./qshell cdnrefresh -dirs cdnrefresh-dirs.txt
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: dist
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
