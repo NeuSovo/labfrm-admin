@@ -78,7 +78,17 @@ const frameIn = [
         name: '实验室列表',
         component: _import('lab/lab'),
         meta: {
-          title: '实验室列表'
+          title: '实验室列表',
+          auth: true
+        }
+      },
+      {
+        path: 'reserve',
+        name: '预约记录',
+        component: _import('lab/reserve'),
+        meta: {
+          title: '预约记录',
+          auth: true
         }
       }
     ]

@@ -10,5 +10,16 @@ export default [
       { path: '/page3', title: '页面 3' }
     ]
   },
-  { path: '/lab', title: '实验室列表' }
+  {
+    title: '实验室',
+    icon: 'folder-o',
+    children: [
+      { path: '/lab', title: '实验室列表' }
+    ]
+  },
+  {
+    title: '预约表',
+    icon: 'folder-o',
+    path: '/reserve'
+  }
 ]

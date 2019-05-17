@@ -36,3 +36,17 @@ export function deleteLab (labid) {
     method: 'post'
   })
 }
+
+export function getAllReserve () {
+  return request({
+    url: 'admin/reserve/list',
+    method: 'get'
+  })
+}
+
+export function getReserveDetail (id) {
+  return request({
+    url: 'admin/reserve/detail/' + id,
+    method: 'get'
+  })
+}

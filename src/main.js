@@ -15,7 +15,6 @@ import menuAside from '@/menu/aside'
 import { frameInRoutes } from '@/router/routes'
 import D2Crud from '@d2-projects/d2-crud'
 
-
 // 核心插件
 Vue.use(d2Admin)
 
