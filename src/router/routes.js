@@ -83,11 +83,38 @@ const frameIn = [
         }
       },
       {
+        path: 'lab/detail/:labid',
+        name: '实验室介绍',
+        component: _import('lab/labdetail'),
+        meta: {
+          title: '实验室介绍',
+          auth: true
+        }
+      },
+      {
         path: 'reserve',
         name: '预约记录',
         component: _import('lab/reserve'),
         meta: {
           title: '预约记录',
+          auth: true
+        }
+      },
+      {
+        path: 'reserve/detail/:recordid',
+        name: '预约记录详情',
+        component: _import('lab/reservedetail'),
+        meta: {
+          title: '预约记录详情记录',
+          auth: true
+        }
+      },
+      {
+        path: 'user',
+        name: '用户列表',
+        component: _import('user/user'),
+        meta: {
+          title: '用户列表',
           auth: true
         }
       }

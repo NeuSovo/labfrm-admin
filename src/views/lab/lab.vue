@@ -9,6 +9,7 @@
         :edit-template="addTemplate"
         :form-options="formOptions"
         :rowHandle="rowHandle"
+        @custom-emit-1="handleCustomEvent"
         @dialog-cancel="handleDialogCancel"
         @dialog-open="handleDialogOpen"
         @row-add="handleRowAdd"
@@ -112,7 +113,15 @@ export default {
           size: 'small',
           fixed: 'right',
           confirm: true
-        }
+        },
+        custom: [
+          {
+            text: '详情',
+            type: 'warning',
+            size: 'small',
+            emit: 'custom-emit-1'
+          }
+        ]
       }
     }
   },
@@ -200,6 +209,12 @@ export default {
         type: 'warning'
       })
       done()
+    },
+    handleCustomEvent({ index, row }) {
+      this.$router.push({
+        name: '实验室介绍',
+        params: { labid: row.lab_id }
+      })
     }
   }
 }

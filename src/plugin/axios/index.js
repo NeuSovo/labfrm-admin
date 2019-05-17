@@ -72,9 +72,9 @@ service.interceptors.response.use(
         case 0:
           // [ 示例 ] code === 0 代表没有错误
           return dataAxios.data
-        // case 20004:
-        //   // [ 示例 ] 其它和后台约定的 code
-        //   errorCreate(`[ code: code ] ${dataAxios.message}: ${response.config.url}`)
+        case 20002:
+          // [ 示例 ] 其它和后台约定的 code
+          errorCreate(`[ code: ${code} ] 错误/数据可能重复: ${response.config.url}`)
         //   break
         // case 20105:
         //   errorCreate(`[ code: code ] ${dataAxios.message}: ${response.config.url}`)

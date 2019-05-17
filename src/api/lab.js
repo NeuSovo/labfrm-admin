@@ -7,6 +7,21 @@ export function getLabData () {
   })
 }
 
+export function getLabDetail (labid) {
+  return request({
+    url: 'lab/detail/' + labid,
+    method: 'get'
+  })
+}
+
+export function updateLabDetail (labid, data) {
+  return request({
+    url: 'admin/lab/detail/update/' + labid,
+    method: 'post',
+    data
+  })
+}
+
 export function getLabType () {
   return request({
     url: 'lab/gettype',
@@ -48,5 +63,20 @@ export function getReserveDetail (id) {
   return request({
     url: 'admin/reserve/detail/' + id,
     method: 'get'
+  })
+}
+
+export function updateReserveDetail (id, data) {
+  return request({
+    url: 'admin/reserve/update/' + id,
+    method: 'post',
+    data
+  })
+}
+
+export function reviewReserve (id, status) {
+  return request({
+    url: 'admin/reserve/review/' + id + '/' + status,
+    method: 'post'
   })
 }

@@ -18,8 +18,13 @@ export default [
     ]
   },
   {
-    title: '预约表',
+    title: '预约',
     icon: 'folder-o',
     path: '/reserve'
+  },
+  {
+    title: '用户',
+    icon: 'folder-o',
+    path: '/user'
   }
 ]
