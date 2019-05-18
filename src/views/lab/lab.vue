@@ -125,7 +125,8 @@ export default {
       }
     }
   },
-  created() {
+  created() {},
+  mounted() {
     getLabType().then(res => {
       res.forEach(element => {
         this.type[element.id] = element.name
@@ -135,8 +136,6 @@ export default {
         })
       })
     })
-  },
-  mounted() {
     getLabData().then(res => {
       this.data = res
     })
