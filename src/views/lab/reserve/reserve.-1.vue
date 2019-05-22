@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <template slot="header">实验室预约列表</template>
+    <template slot="header">实验室预约列表 - 不通过</template>
     <span>注意：1.已通过的可以取消，但是已取消的不能再次通过，2.取消的将会删除所有预约信息。预约记录变为不可见</span>
     <d2-crud
       :columns="columns"
@@ -23,9 +23,9 @@ export default {
     return {
       columns: [
         {
-          title: 'id',
+          title: '#',
           key: 'id',
-          width: '50'
+          width: '60'
         },
         {
           title: '创建时间',
@@ -72,18 +72,6 @@ export default {
       rowHandle: {
         custom: [
           {
-            text: '通过',
-            type: 'success',
-            size: 'small',
-            emit: 'custom-emit-2'
-          },
-          {
-            text: '不通过',
-            type: 'error',
-            size: 'small',
-            emit: 'custom-emit-3'
-          },
-          {
             text: '详情',
             type: 'warning',
             size: 'small',
@@ -94,7 +82,7 @@ export default {
     }
   },
   mounted() {
-    getAllReserve().then(res => {
+    getAllReserve(-1).then(res => {
       this.data = res
     })
   },

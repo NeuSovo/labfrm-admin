@@ -52,9 +52,9 @@ export function deleteLab (labid) {
   })
 }
 
-export function getAllReserve () {
+export function getAllReserve (status) {
   return request({
-    url: 'admin/reserve/list',
+    url: 'admin/reserve/list' + '?status=' + status,
     method: 'get'
   })
 }

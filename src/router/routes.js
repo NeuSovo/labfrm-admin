@@ -92,18 +92,36 @@ const frameIn = [
         }
       },
       {
-        path: 'reserve',
-        name: '预约记录',
-        component: _import('lab/reserve'),
+        path: 'reserve/0',
+        name: '待审核',
+        component: _import('lab/reserve/reserve.vue'),
         meta: {
-          title: '预约记录',
+          title: '待审核',
+          auth: true
+        }
+      },
+      {
+        path: 'reserve/1',
+        name: '已通过',
+        component: _import('lab/reserve/reserve.1.vue'),
+        meta: {
+          title: '已通过',
+          auth: true
+        }
+      },
+      {
+        path: 'reserve/-1',
+        name: '不通过',
+        component: _import('lab/reserve/reserve.-1.vue'),
+        meta: {
+          title: '不通过',
           auth: true
         }
       },
       {
         path: 'reserve/detail/:recordid',
         name: '预约记录详情',
-        component: _import('lab/reservedetail'),
+        component: _import('lab/reserve/reservedetail'),
         meta: {
           title: '预约记录详情记录',
           auth: true

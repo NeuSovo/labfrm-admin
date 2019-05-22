@@ -20,7 +20,12 @@ export default [
   {
     title: '预约',
     icon: 'folder-o',
-    path: '/reserve'
+    children: [
+      { path: '/reserve/0', title: '待审核' },
+      { path: '/reserve/1', title: '已审核' },
+      { path: '/reserve/-1', title: '不通过' },
+
+    ]
   },
   {
     title: '用户',

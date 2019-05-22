@@ -135,10 +135,14 @@ export default {
           label: element.name
         })
       })
+      console.log(1)
     })
+    console.log(2)
     getLabData().then(res => {
       this.data = res
+      console.log(3)
     })
+    console.log(4)
   },
   methods: {
     s2text(row, cloumn, cellvalue, index) {
