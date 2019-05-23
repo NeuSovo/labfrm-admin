@@ -1,8 +1,8 @@
 import request from '@/plugin/axios'
 
-export function getAllUser () {
+export function getAllUser (page, limit) {
     return request({
-        url: 'admin/user/list',
+        url: `admin/user/list?page=${page}&limit=${limit}`,
         method: 'get'
     })
 }

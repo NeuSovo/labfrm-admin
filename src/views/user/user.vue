@@ -12,7 +12,18 @@
         ref="d2Crud"
       ></d2-crud>
     </div>
-    <template slot="footer"></template>
+    <template slot="footer">
+      <div class="block">
+        <el-pagination
+          :page-size="pageSize"
+          :page-sizes="[50, 100, 200, 300]"
+          :total="pageCount"
+          @current-change="handleCurrentChange"
+          @size-change="handleSizeChange"
+          layout="sizes, prev, pager, next"
+        ></el-pagination>
+      </div>
+    </template>
   </d2-container>
 </template>
 
@@ -77,13 +88,17 @@ export default {
           fixed: 'right',
           confirm: true
         }
-      }
+      },
+      page: 1,
+      pageCount: 0,
+      pageSize: 50
     }
   },
   created() {},
   mounted() {
-    getAllUser().then(res => {
-      this.data = res
+    getAllUser(this.page, this.pageSize).then(res => {
+      this.data = res.data
+      this.pageCount = res.count
     })
   },
   methods: {
@@ -115,6 +130,20 @@ export default {
           done()
         })
       }, 300)
+    },
+    handleSizeChange(val) {
+      this.pageSize = val
+      this.refreshData()
+    },
+    handleCurrentChange(val) {
+      this.page = val
+      this.refreshData()
+    },
+    refreshData() {
+      getAllUser(this.page, this.pageSize).then(res => {
+        this.data = res.data
+        this.pageCount = res.count
+      })
     }
   }
 }

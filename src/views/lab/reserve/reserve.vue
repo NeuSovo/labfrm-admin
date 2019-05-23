@@ -11,10 +11,20 @@
       @custom-emit-3="Reject"
       ref="d2Crud"
     />
-    <template slot="footer"></template>
+    <template slot="footer">
+      <div class="block">
+        <el-pagination
+          :page-size="pageSize"
+          :page-sizes="[50, 100, 200, 300]"
+          :total="pageCount"
+          @current-change="handleCurrentChange"
+          @size-change="handleSizeChange"
+          layout="sizes, prev, pager, next"
+        ></el-pagination>
+      </div>
+    </template>
   </d2-container>
 </template>
-
 <script>
 import { getAllReserve, reviewReserve } from '@/api/lab'
 
@@ -90,12 +100,16 @@ export default {
             emit: 'custom-emit-1'
           }
         ]
-      }
+      },
+      page: 1,
+      pageCount: 0,
+      pageSize: 50
     }
   },
   mounted() {
-    getAllReserve(0).then(res => {
-      this.data = res
+    getAllReserve(0, this.page, this.pageSize).then(res => {
+      this.data = res.data
+      this.pageCount = res.count
     })
   },
   methods: {
@@ -152,9 +166,22 @@ export default {
             type: 'success'
           })
           row.status = -1
-          done()
         })
       }, 300)
+    },
+    handleSizeChange(val) {
+      this.pageSize = val
+      this.refreshData()
+    },
+    handleCurrentChange(val) {
+      this.page = val
+      this.refreshData()
+    },
+    refreshData() {
+      getAllReserve(0, this.page, this.pageSize).then(res => {
+        this.data = res.data
+        this.pageCount = res.count
+      })
     }
   }
 }
