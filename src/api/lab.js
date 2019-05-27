@@ -80,3 +80,11 @@ export function reviewReserve (id, status) {
     method: 'post'
   })
 }
+
+export function deleteLabDetailImage (id, data) {
+  return request({
+    url: 'admin/lab/detail/image/delete/' + id,
+    method: 'post',
+    data
+  })
+}
