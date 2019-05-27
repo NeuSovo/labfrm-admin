@@ -23,13 +23,16 @@ export default [
     children: [
       { path: '/reserve/0', title: '待审核' },
       { path: '/reserve/1', title: '已审核' },
-      { path: '/reserve/-1', title: '不通过' },
+      { path: '/reserve/-1', title: '不通过' }
 
     ]
   },
   {
     title: '用户',
     icon: 'folder-o',
-    path: '/user'
+    children: [
+      { path: '/user', title: '用户列表' },
+      { path: '/user/whitelist', title: '白名单列表' }
+    ]
   }
 ]

@@ -135,6 +135,15 @@ const frameIn = [
           title: '用户列表',
           auth: true
         }
+      },
+      {
+        path: 'user/whitelist',
+        name: '白名单列表',
+        component: _import('user/whitelist'),
+        meta: {
+          title: '白名单列表',
+          auth: true
+        }
       }
     ]
   }

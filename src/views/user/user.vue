@@ -8,6 +8,7 @@
         :data="data"
         :rowHandle="rowHandle"
         @cell-data-change="handleCellDataChange"
+        @custom-emit-1="handleCustomEvent"
         @row-remove="handleRowRemove"
         ref="d2Crud"
       ></d2-crud>
@@ -28,7 +29,13 @@
 </template>
 
 <script>
-import { getAllUser, updateUser, deleteUser } from '@/api/user'
+import {
+  getAllUser,
+  updateUser,
+  deleteUser,
+  addWhiteList,
+  deleteWhiteList
+} from '@/api/user'
 
 export default {
   data() {
@@ -87,7 +94,15 @@ export default {
           size: 'small',
           fixed: 'right',
           confirm: true
-        }
+        },
+        custom: [
+          {
+            text: '加入开门白名单',
+            type: 'info',
+            size: 'small',
+            emit: 'custom-emit-1'
+          }
+        ]
       },
       page: 1,
       pageCount: 0,
@@ -143,6 +158,15 @@ export default {
       getAllUser(this.page, this.pageSize).then(res => {
         this.data = res.data
         this.pageCount = res.count
+      })
+    },
+    handleCustomEvent({ index, row }) {
+      console.log(row)
+      addWhiteList(row.id).then(res => {
+        this.$message({
+          message: '添加成功',
+          type: 'success'
+        })
       })
     }
   }
