@@ -144,6 +144,16 @@ const frameIn = [
           title: '白名单列表',
           auth: true
         }
+      },
+      ,
+      {
+        path: 'user/stuinfo',
+        name: 'stuinfo',
+        component: _import('user/stu_info'),
+        meta: {
+          title: '学生信息',
+          auth: true
+        }
       }
     ]
   }

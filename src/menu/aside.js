@@ -32,7 +32,8 @@ export default [
     icon: 'folder-o',
     children: [
       { path: '/user', title: '用户列表' },
-      { path: '/user/whitelist', title: '白名单列表' }
+      { path: '/user/whitelist', title: '白名单列表' },
+      { path: '/user/stuinfo', title: '学生信息' }
     ]
   }
 ]

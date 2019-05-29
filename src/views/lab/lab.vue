@@ -80,6 +80,9 @@ export default {
             name: 'el-input-number'
           }
         },
+        device_number: {
+          title: '门禁设备号',
+        },
         s: {
           title: '状态',
           value: 0,
