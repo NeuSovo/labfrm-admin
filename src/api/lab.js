@@ -2,7 +2,7 @@ import request from '@/plugin/axios'
 
 export function getLabData () {
   return request({
-    url: 'lab',
+    url: 'lab?s=1',
     method: 'get'
   })
 }
