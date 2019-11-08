@@ -19,7 +19,7 @@
     "dayjs": "^1.8.12",
     "element-ui": "^2.8.2",
     "flex.css": "^1.1.7",
-    "fuse.js": "^3.4.4",
+    "fuse.js": "^3.4.5",
     "hotkeys-js": "^3.6.2",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.15",
